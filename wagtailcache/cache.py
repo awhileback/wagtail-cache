@@ -271,7 +271,7 @@ class WagtailCacheMixin:
             response["Cache-Control"] = CacheControl.PRIVATE.value
         elif hasattr(self, "cache_control"):
             if callable(self.cache_control):
-                response["Cache-Control"] = self.cache_control()
+                response["Cache-Control"] = self.cache_control(request)
             else:
                 response["Cache-Control"] = self.cache_control
         return response
